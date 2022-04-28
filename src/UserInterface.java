@@ -158,7 +158,7 @@ public class UserInterface {
         }
     }
 
-    private void load() {
+    private void load() throws FileNotFoundException {
         System.out.println("Loading the database ...");
         application.loadDatabase();
         System.out.println("Done!");

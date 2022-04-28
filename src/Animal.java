@@ -25,6 +25,7 @@ public class Animal {
         out.print(animal.age);
         out.print(";");
         out.print(animal.weight);
+        out.println();
     }
 
 
