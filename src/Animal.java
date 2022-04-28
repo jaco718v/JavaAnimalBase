@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+
 public class Animal {
     private String name;
     private String desc;
@@ -12,6 +14,19 @@ public class Animal {
         this.age = age;
         this.weight = weight;
     }
+
+    public void printAnimal(PrintStream out, Animal animal){
+        out.print(animal.name);
+        out.print(";");
+        out.print(animal.desc);
+        out.print(";");
+        out.print(animal.type);
+        out.print(";");
+        out.print(animal.age);
+        out.print(";");
+        out.print(animal.weight);
+    }
+
 
     public String getName() {
         return name;
