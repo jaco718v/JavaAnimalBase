@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class AnimalBase {
 
     private ArrayList<Animal> animals;
+    private FileHandler fh = new FileHandler();
 
     public AnimalBase() {
         animals = new ArrayList<>();
@@ -61,26 +62,11 @@ public class AnimalBase {
         return null;
     }
 
-
-    public void loadDatabase() throws FileNotFoundException {
-        Scanner fileScanner = new Scanner(new File("animal.csv"));
-        while(fileScanner.hasNextLine()){
-            String line = fileScanner.nextLine();
-            Scanner sc = new Scanner(line).useDelimiter(";").useLocale(Locale.ENGLISH);
-            String name = sc.next();
-            String desc = sc.next();
-            String type = sc.next();
-            int age = sc.nextInt();
-            double weight = sc.nextDouble();
-            animals.add(new Animal(name,desc,type,age,weight));
-        }
+    public void loadDatabase() throws FileNotFoundException{
+        fh.loadDatabase(animals);
     }
 
     public void saveDatabase() throws FileNotFoundException {
-        PrintStream out = new PrintStream(new File("animal.csv"));
-        for(Animal animal: animals){
-            animal.printAnimal(out,animal);
-        }
+        fh.saveDatabase(animals);
     }
-
 }
